@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 //to excess env contents
 require('dotenv').config();
@@ -7,10 +8,11 @@ require('dotenv').config();
 //define Port
  PORT = process.env.PORT || 4000
 
-
 //middle ware to parse json
-
 app.use(express.json());
+
+app.use(cors())
+
 
 //connecting to DB
 const ConnectDb = require('./Config/database');
